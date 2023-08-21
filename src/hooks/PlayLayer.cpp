@@ -7,6 +7,8 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/PlayLayer.hpp>
 
+#include "../utils.h"
+
 using namespace geode::prelude;
 
 /**
@@ -29,7 +31,7 @@ std::vector<std::string> explode(gd::string &string, char separator) {
 	return splitlist;
 }
 
-class $modify(PlayLayerExt, PlayLayer) {
+class $modify(RBPlayLayer, PlayLayer) {
 	void setupReplay(gd::string replay) {
 		this->m_collisionDisabled = true;
 	    // this has to be false. it should be false by default.
@@ -59,7 +61,7 @@ class $modify(PlayLayerExt, PlayLayer) {
 		auto res = PlayLayer::init(level);
 		if(!res) return false;
 
-		if (!std::string(level->m_recordString).empty()) {
+		if (TempSettings::shouldLoadReplay && !std::string(level->m_recordString).empty()) {
 			auto decompressed_string = cocos2d::ZipUtils::decompressString(level->m_recordString, false, 0xB);
 
 			setupReplay(decompressed_string);
@@ -74,6 +76,8 @@ class $modify(PlayLayerExt, PlayLayer) {
 			label->setPosition(22.0f, 8.0f);
 
 			m_isTestMode = true;
+
+			TempSettings::shouldLoadReplay = false;
 		} else {
         	// recording is only usually enabled when levelType == 2, this keeps it always enabled
 			//auto do_record_actions = offset_from_base<bool>(self, 0x429);
