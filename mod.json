@@ -1,0 +1,8 @@
+{
+	"geode": "1.1.0",
+	"version": "v1.0.0",
+	"id": "cvolton.robtop_bot",
+	"name": "RobTop Bot",
+	"developer": "Cvolton",
+	"description": "Allows you to play back replays stored for your editor levels"
+}
