@@ -83,7 +83,7 @@ class $modify(RBPlayLayer, PlayLayer) {
 			//auto do_record_actions = offset_from_base<bool>(self, 0x429);
 			//*do_record_actions = true;
 			//
-			log::info("no replay available");
+			if(Mod::get()->getSettingValue<bool>("record-actions")) m_shouldRecordActions = true;
 		}
 
 		return true;
@@ -93,6 +93,18 @@ class $modify(RBPlayLayer, PlayLayer) {
 		m_antiCheatPassed = true;
 
 		PlayLayer::updateReplay(dt);
+	}
+
+	void levelComplete() {
+		if (Mod::get()->getSettingValue<bool>("record-actions") && m_shouldRecordActions && !m_collisionDisabled) {
+
+			if (!std::string(m_previousRecords).empty()) {
+				auto compressed_string = cocos2d::ZipUtils::compressString(m_previousRecords, false, 0xB);
+				m_level->m_recordString = compressed_string;
+			}
+		}
+
+		PlayLayer::levelComplete();
 	}
 
 };
