@@ -14,7 +14,7 @@
         },
         "record-actions": {
             "name": "Record replays for online levels",
-            "description": "Records replays for online levels and stores them in your save file",
+            "description": "Records replays for online levels and stores them in your save file (CCGameManager.dat).",
             "type": "bool",
             "default": false
         },
