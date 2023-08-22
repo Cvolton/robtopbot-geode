@@ -4,5 +4,13 @@
 	"id": "cvolton.robtop_bot",
 	"name": "RobTop Bot",
 	"developer": "Cvolton",
-	"description": "Allows you to play back replays stored for your editor levels"
+	"description": "The worst bot ever made, now at your fingertips...",
+	"settings": {
+        "show-playing": {
+            "name": "Show Playback text",
+            "description": "Shows \"Playback\" in the corner when ",
+            "type": "bool",
+            "default": true
+        }
+    }
 }

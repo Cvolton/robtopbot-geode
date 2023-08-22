@@ -68,7 +68,7 @@ class $modify(RBPlayLayer, PlayLayer) {
 
         // "safety"
 			auto label = cocos2d::CCLabelBMFont::create("Playback", "bigFont.fnt");
-			addChild(label, 50);
+			if(Mod::get()->getSettingValue<bool>("show-playing")) addChild(label, 50);
 
 			label->setScale(0.25f);
 			label->setOpacity(80);
