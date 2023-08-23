@@ -5,6 +5,7 @@
 	"name": "RobTop Bot",
 	"developer": "Cvolton",
 	"description": "The worst bot ever made, now at your fingertips...",
+	"repository": "https://github.com/cvolton/robtopbot-geode",
 	"settings": {
         "show-playing": {
             "name": "Show Playback text",
