@@ -90,7 +90,7 @@ class $modify(RBPlayLayer, PlayLayer) {
 	}
 
 	void updateReplay(float dt) {
-		m_antiCheatPassed = true;
+		if(m_collisionDisabled) m_antiCheatPassed = true;
 
 		PlayLayer::updateReplay(dt);
 	}
