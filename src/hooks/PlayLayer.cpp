@@ -19,7 +19,7 @@ using namespace geode::prelude;
  *
  * @return     a vector of strings split by the separator
  */
-std::vector<std::string> explode(gd::string &string, char separator) {
+std::vector<std::string> explode(std::string string, char separator) {
 	std::stringstream segmentstream(string);
 	std::string segmented;
 	std::vector<std::string> splitlist;

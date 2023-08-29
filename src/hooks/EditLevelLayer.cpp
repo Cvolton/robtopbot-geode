@@ -27,7 +27,7 @@ class $modify(RBEditLevelLayer, EditLevelLayer) {
             auto winSize = CCDirector::sharedDirector()->getWinSize();
 
             auto playReplay = CCSprite::createWithSpriteFrameName("GJ_playEditorBtn_001.png");
-            playReplay->setScale(0.8);
+            playReplay->setScale(0.8f);
             auto playReplayBtn = CCMenuItemSpriteExtra::create(
                 playReplay,
                 this,
